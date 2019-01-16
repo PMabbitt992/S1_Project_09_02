@@ -28,7 +28,8 @@
 <body>
     <header>
         <img src="sb_logo.png" alt="The Spice Bowl" />
-        <form id="login action" action=" http://www.example.com/sb/login" method="POST">
+        <!-- Input that leads to http://www.example.com/sb/login using a secure POST method that will contain the users username and password  -->
+        <form id="login action" action="http://www.example.com/sb/login" method="POST">
             <input id="userbox" placeholder="username" type="text">
             <input id="pwdbox" placeholder="password" type="text">
         </form>
@@ -46,7 +47,159 @@
 
     <section>
         <h1>Payment Form</h1>
+        <!-- Form for payment that leads to http://www.example.com/sb/payment using a secure POST method -->
+        <form id="payment" action="http://www.example.com/sb/payment" method="POST">
+            <fieldset id="billing">
+                <!-- Text that will show at the top of the form -->
+                <legend>Billing Information (required)</legend>
 
+                <!-- Each input contains a related label, identification, type, and whether it is a required field -->
+                <label for="firstBox">First Name</label>
+                <input name="fname" id="firstBox" type="text" required>
+
+                <label for="lastBox">Lase Name</label>
+                <input name="lname" id="lastBox" type="text" required>
+
+                <label for="streetBox">Street</label>
+                <input name="street" id="streetBox" type="text" required>
+
+                <label for="street2Box">Street(2)</label>
+                <input name="street2" id="street2Box" type="text">
+
+                <label for="cityBox">City</label>
+                <input name="city" id="cityBox" type="text" required>
+
+                <label for="stateBox">State</label>
+                <input name="state" id="stateBox" type="text" required list="stateList">
+                <!-- 50 options, one for each state that will appear in the State input box -->
+                <datalist id="stateList">
+                    <option value="AL">
+                    <option value="AK">
+                    <option value="AZ">
+                    <option value="AR">
+                    <option value="CA">
+                    <option value="CO">
+                    <option value="CT">
+                    <option value="DE">
+                    <option value="FL">
+                    <option value="GA">
+                    <option value="HI">
+                    <option value="ID">
+                    <option value="IL">
+                    <option value="IN">
+                    <option value="IA">
+                    <option value="KS">
+                    <option value="KY">
+                    <option value="LA">
+                    <option value="ME">
+                    <option value="MD">
+                    <option value="MA">
+                    <option value="MI">
+                    <option value="MN">
+                    <option value="MS">
+                    <option value="MO">
+                    <option value="MT">
+                    <option value="NE">
+                    <option value="NV">
+                    <option value="NH">
+                    <option value="NJ">
+                    <option value="NM">
+                    <option value="NY">
+                    <option value="NC">
+                    <option value="ND">
+                    <option value="OH">
+                    <option value="OK">
+                    <option value="OR">
+                    <option value="PA">
+                    <option value="RI">
+                    <option value="SC">
+                    <option value="SD">
+                    <option value="TN">
+                    <option value="TX">
+                    <option value="UT">
+                    <option value="VT">
+                    <option value="VA">
+                    <option value="WA">
+                    <option value="WV">
+                    <option value="WI">
+                    <option value="WY">
+                </datalist>
+
+                <!-- Input contains a pattern for correct user input enforcment -->
+                <label for="zipBox">Zip</label>
+                <input name="zip" id="zipBox" type="text" pattern="^\d{5}(-\d{4})?$" placeholder="#####">
+
+                <!-- United States is the default value that can be erased and replaced if needed -->
+                <label for="countryBox">Country</label>
+                <input name="country" id="countryBox" type="text" required value="United States">
+
+                <label for="phoneBox">Phone</label>
+                <input name="phone" id="phoneBox" type="tel" required pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
+                    placeholder="(###) ###-####">
+            </fieldset>
+
+            <fieldset id="creditCard">
+                <legend>Credit Card (required)</legend>
+                <!-- Each credit card has a label with the card picture and a radio button, so only one can be chossen at a time -->
+                <fieldset>
+                    <label class="cardLabel">
+                        <input name="cCard" type="radio" value="amex">
+                        <img src="sb_amex.png">
+                    </label>
+                    <label class="cardLabel">
+                        <input name="cCard" type="radio" value="discover">
+                        <img src="sb_discover.png">
+                    </label>
+                    <label class="cardLabel">
+                        <input name="cCard" type="radio" value="master">
+                        <img src="sb_master.png">
+                    </label>
+                    <label class="cardLabel">
+                        <input name="cCard" type="radio" value="visa">
+                        <img src="sb_visa.png">
+                    </label>
+                </fieldset>
+
+                <!-- Input contains a pattern for correct user input enforcment -->
+                <label for="cardBox">Credit Card Number</label>
+                <input name="cardNumber" id="cardBox" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$">
+
+                <!-- 12 options, one for each month that will appear in the Expiration Date input box -->
+                <label for="monthList">Expiration Date</label>
+                <select name="cardMonth" id="monthList" required>
+                    <option value="">--Month--</option>
+                    <option value="1">January (01)</option>
+                    <option value="2">February (02)</option>
+                    <option value="3">March (03)</option>
+                    <option value="4">April (04)</option>
+                    <option value="5">May (05)</option>
+                    <option value="6">June (06)</option>
+                    <option value="7">July (07)</option>
+                    <option value="8">August (08)</option>
+                    <option value="9">September (09)</option>
+                    <option value="10">October (10)</option>
+                    <option value="11">November (11)</option>
+                    <option value="12">December (12)</option>
+                </select>
+
+                <!-- 5 options, one for each year that may appear on the card. List will appear next to the month  input box -->
+                <select name="cardYear" id="yearList" required>
+                    <option value="">--Year--</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                </select>
+
+                <label for="cscBox">CSC</label>
+                <input name="csc" id="cscBox" required pattern="^\d{3}$" placeholder="###">
+            </fieldset>
+
+            <!-- Submit button -->
+            <button type="submit">
+                <img src="sb_button.png"> </button>
+        </form>
         <aside>
             <h1>Menu Ideas</h1>
             <h2>Salt-Roasted Pecans</h2>

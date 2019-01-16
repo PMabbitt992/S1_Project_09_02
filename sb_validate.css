@@ -13,3 +13,18 @@
 
 
 /* Validation Styles */
+
+/* When any input that is not a radio button is focused on it will turn a light orange */
+input:not([type='radio']):focus {
+    background-color: rgb(255, 218, 165);
+}
+
+/* When any input that is not a radio button is focused on and is valid it will turn a light green and a small green check will appear  */
+input:not([type='radio']):focus:valid {
+    background: rgb(215, 255, 215) url(sb_valid.png) right no-repeat;
+}
+
+/* When any input that is not a radio button is focused on and is invalid it will turn a light orange and a small red x will appear  */
+input:not([type='radio']):focus:invalid {
+    background: rgb(255, 245, 215) url(sb_invalid.png) right no-repeat;
+}
